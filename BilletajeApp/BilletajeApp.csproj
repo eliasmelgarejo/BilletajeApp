@@ -43,10 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dominio\Bus.cs" />
     <Compile Include="dominio\EmpresaBilletaje.cs" />
+    <Compile Include="dominio\EmpresaTransporte.cs" />
+    <Compile Include="dominio\Enums.cs" />
+    <Compile Include="dominio\IBus.cs" />
+    <Compile Include="dominio\Linea15.cs" />
+    <Compile Include="dominio\Utils.cs" />
     <Compile Include="dominio\Tarjetas.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="test\TestBilletajeApp.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

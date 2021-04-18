@@ -39,6 +39,7 @@ namespace BilletajeApp.dominio
 
         public double RestarSaldo(double monto)
         {
+            Console.WriteLine("Restando Gs."+monto+" de la tarjeta "+this.Numero);
             return this.Saldo -= monto;
         }
 
@@ -49,7 +50,7 @@ namespace BilletajeApp.dominio
 
         public override string ToString()
         {
-            return "Tarjeta Nro."+this.Numero+" de la Marca: "+this.Empresa.Marca;
+            return "Id: "+this.Id+" Tarjeta Nro: "+this.Numero+" de la Marca: "+this.Empresa.Marca;
         }
 
         public override bool Equals(object obj)

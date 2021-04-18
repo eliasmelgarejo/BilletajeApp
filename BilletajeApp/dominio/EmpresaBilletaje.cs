@@ -8,7 +8,7 @@ namespace BilletajeApp.dominio
 {
     public class EmpresaBilletaje
     {
-        public int Id { get; set; }
+        public int Id { get;}
         public string Nombre { get; set; }
         public string Marca { get; set; }
 
@@ -17,6 +17,11 @@ namespace BilletajeApp.dominio
             this.Id = _Id;
             this.Nombre = _Nombre;
             this.Marca = _Marca;
+        }
+
+        public override string ToString()
+        {
+            return "Id: "+this.Id+" Nombre: "+this.Nombre+" Marca: "+this.Marca;
         }
     }
 }
