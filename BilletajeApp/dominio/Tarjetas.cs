@@ -10,7 +10,7 @@ namespace BilletajeApp.dominio
     {
         public int Id { get; set; }
         public string Numero { get; set; }
-        public string Usuario { get; set; } //numero de cédula
+        public Usuario Usuario { get; set; } //numero de cédula
         public double Saldo { get; set; }
         public EmpresaBilletaje Empresa { get; set; }
         public bool Activa { get; set; }
@@ -22,9 +22,13 @@ namespace BilletajeApp.dominio
             this.Empresa = _Empresa;
         }
 
-        public void ActivarTarjeta()
+        public bool ActivarTarjeta()
         {
-            this.Activa = true;
+            if(this.Usuario != null)
+            {
+                this.Activa = true;
+            }
+            return this.Activa;
         }
 
         public void BloquearTarjeta()
@@ -43,9 +47,9 @@ namespace BilletajeApp.dominio
             return this.Saldo -= monto;
         }
 
-        public void AsignarUsuario(string cedula)
+        public void AsignarUsuario(Usuario usuario)
         {
-            this.Usuario = cedula;
+            this.Usuario = usuario;
         }
 
         public override string ToString()

@@ -12,7 +12,7 @@ namespace BilletajeApp.dominio
         public Linea15(int id)
         {
             Id = id;
-            Nombre = this.GetType().Name;
+            Nombre = this.GetType().Name; //reflexion
         }
     }
 }

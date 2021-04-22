@@ -22,6 +22,8 @@ namespace BilletajeApp.test
 
                 IBus coche43 = new Bus(++keys,43,TipoBus.REGULAR,linea15);
                 Console.WriteLine(coche43.ToString());
+
+                linea15.AgregarBus((Bus) coche43);
                 
                 EmpresaBilletaje mas = new EmpresaBilletaje(++keys, "Empresa EPAS", "más");
                 Console.WriteLine("Empresa "+mas.ToString());
@@ -29,16 +31,25 @@ namespace BilletajeApp.test
                 Tarjetas tarjetas = new Tarjetas(++keys, "3600-0020-0031-9479", mas);
                 Console.WriteLine(tarjetas.ToString() + " - " + "Activa: " + tarjetas.Activa);
 
-                tarjetas.ActivarTarjeta();
-                Console.WriteLine(tarjetas.ToString() + " - " + "Activa: " + tarjetas.Activa);
-                Console.WriteLine(tarjetas.ToString() + " - " + "Saldo: " + tarjetas.Saldo);
-                tarjetas.SumarSaldo(56000);
-                Console.WriteLine(tarjetas.ToString() + " - " + "Saldo: " + tarjetas.Saldo);
+                Usuario carmen = new Usuario(++keys, "Carmen", "123");
+                tarjetas.AsignarUsuario(carmen);
 
-                //operaciones con tarjetas y buses
-                Console.WriteLine("El usuario sube al bus linea 15 coche 43 y paga el importe del paseje...");
-                tarjetas.RestarSaldo(coche43.cobroPasaje());
-                Console.WriteLine(tarjetas.ToString() + " - " + "Saldo: " + tarjetas.Saldo);
+                if (tarjetas.ActivarTarjeta())
+                {
+                    Console.WriteLine(tarjetas.ToString() + " - " + "Activa: " + tarjetas.Activa);
+                    Console.WriteLine(tarjetas.ToString() + " - " + "Saldo: " + tarjetas.Saldo);
+                    tarjetas.SumarSaldo(56000);
+                    Console.WriteLine(tarjetas.ToString() + " - " + "Saldo: " + tarjetas.Saldo);
+
+                    //operaciones con tarjetas y buses
+                    Console.WriteLine("El usuario sube al bus linea 15 coche 43 y paga el importe del paseje...");
+                    tarjetas.RestarSaldo(coche43.cobroPasaje());
+                    Console.WriteLine(tarjetas.ToString() + " - " + "Saldo: " + tarjetas.Saldo);
+                }
+                else
+                {
+                    Console.WriteLine("La tarjeta no esta ACTIVA...");
+                }
                 
 
             }catch(Exception e)

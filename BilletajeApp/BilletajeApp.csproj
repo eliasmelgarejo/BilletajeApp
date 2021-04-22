@@ -49,6 +49,7 @@
     <Compile Include="dominio\Enums.cs" />
     <Compile Include="dominio\IBus.cs" />
     <Compile Include="dominio\Linea15.cs" />
+    <Compile Include="dominio\Usuario.cs" />
     <Compile Include="dominio\Utils.cs" />
     <Compile Include="dominio\Tarjetas.cs" />
     <Compile Include="Program.cs" />

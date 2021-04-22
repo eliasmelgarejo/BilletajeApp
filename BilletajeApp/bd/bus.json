@@ -1,0 +1,12 @@
+﻿[
+  {
+    "Id": "1",
+    "Numero": "43",
+    "Tipo": "REGULAR",
+    "Emprea": {
+      "Id": "1",
+      "Nombre": "EPAS",
+      "Marca": "mas"
+      }
+  },
+]

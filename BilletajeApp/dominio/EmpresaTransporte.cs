@@ -10,6 +10,7 @@ namespace BilletajeApp.dominio
     {
         private int id;
         private string nombre;
+        private List<Bus> flota = new List<Bus>();
 
         public int Id
         {
@@ -26,6 +27,16 @@ namespace BilletajeApp.dominio
         public override string ToString()
         {
             return "Id: "+Id+" Nombre: "+Nombre;
+        }
+
+        public void AgregarBus(Bus bus)
+        {
+            this.flota.Add(bus);
+        }
+
+        public void EliminarBus(Bus bus)
+        {
+            this.flota.Remove(bus);
         }
     }
 }
