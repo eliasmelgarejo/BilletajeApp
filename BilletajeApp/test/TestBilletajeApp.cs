@@ -1,6 +1,9 @@
-﻿using BilletajeApp.dominio;
+﻿using BilletajeApp.commons;
+using BilletajeApp.dominio;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +23,12 @@ namespace BilletajeApp.test
                 EmpresaTransporte linea15 = new Linea15(++keys);
                 Console.WriteLine(linea15.ToString());
 
+                string output = JsonConvert.SerializeObject(linea15);
+
+                Console.Write(output.ToString());
+
+                
+
                 IBus coche43 = new Bus(++keys,43,TipoBus.REGULAR,linea15);
                 Console.WriteLine(coche43.ToString());
 
@@ -28,7 +37,7 @@ namespace BilletajeApp.test
                 EmpresaBilletaje mas = new EmpresaBilletaje(++keys, "Empresa EPAS", "más");
                 Console.WriteLine("Empresa "+mas.ToString());
 
-                Tarjetas tarjetas = new Tarjetas(++keys, "3600-0020-0031-9479", mas);
+                Tarjeta tarjetas = new Tarjeta(++keys, "3600-0020-0031-9479", mas);
                 Console.WriteLine(tarjetas.ToString() + " - " + "Activa: " + tarjetas.Activa);
 
                 Usuario carmen = new Usuario(++keys, "Carmen", "123");
@@ -50,9 +59,18 @@ namespace BilletajeApp.test
                 {
                     Console.WriteLine("La tarjeta no esta ACTIVA...");
                 }
-                
 
-            }catch(Exception e)
+                using (StreamWriter sw =
+                    new StreamWriter(@"C:\Users\Elias\source\repos\BilletajeApp\BilletajeApp\bd\tarjeta.json"));
+
+                if (ManipularArchivosJson.exitsArchivo("", "")==false)
+                {
+                    ManipularArchivosJson.crearArchivo("", "");
+                }
+
+
+            }
+            catch(Exception e)
             {
                 Console.WriteLine(e.Message.ToString());
                 R = false;

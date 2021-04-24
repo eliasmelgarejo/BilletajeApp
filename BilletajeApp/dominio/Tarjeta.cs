@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BilletajeApp.dominio
 {
-    public class Tarjetas
+    public class Tarjeta
     {
         public int Id { get; set; }
         public string Numero { get; set; }
@@ -15,7 +15,7 @@ namespace BilletajeApp.dominio
         public EmpresaBilletaje Empresa { get; set; }
         public bool Activa { get; set; }
 
-        public Tarjetas(int _Id,string _Numero,EmpresaBilletaje _Empresa)
+        public Tarjeta(int _Id,string _Numero,EmpresaBilletaje _Empresa)
         {
             this.Id = _Id;
             this.Numero = _Numero;
@@ -60,7 +60,7 @@ namespace BilletajeApp.dominio
         public override bool Equals(object obj)
         {
             bool R = false;
-            if (this.Numero == ((Tarjetas)obj).Numero)
+            if (this.Numero == ((Tarjeta)obj).Numero)
             {
                 R = true;
             }

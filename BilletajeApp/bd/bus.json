@@ -7,6 +7,15 @@
       "Id": "1",
       "Nombre": "EPAS",
       "Marca": "mas"
-      }
+    }
+  },
+  {
+    "Id": "2",
+    "Numero": "40",
+    "Tipo": "EJECUTIVO",
+    "Emprea": {
+      "Id": "1",
+      "Nombre": "EPAS",
+      "Marca": "mas"
   },
 ]
