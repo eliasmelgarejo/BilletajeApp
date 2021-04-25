@@ -8,9 +8,10 @@ namespace BilletajeApp.repositorios
 {
     public interface IRepository<T>
     {
+        string getFileName(string className);
         bool create(T t);
         bool remove(T t);
         List<T> findAll();
-        T findById(int id);
+        T findById(long id);
     }
 }

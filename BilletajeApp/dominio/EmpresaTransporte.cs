@@ -8,11 +8,11 @@ namespace BilletajeApp.dominio
 {
     public abstract class EmpresaTransporte
     {
-        private int id;
+        private long id;
         private string nombre;
         private List<Bus> flota = new List<Bus>();
 
-        public int Id
+        public long Id
         {
             set { this.id = value; }
             get { return this.id; }

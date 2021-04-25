@@ -46,10 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="commons\ManipularArchivosJson.cs" />
     <Compile Include="dominio\Bus.cs" />
     <Compile Include="dominio\EmpresaBilletaje.cs" />
     <Compile Include="dominio\EmpresaTransporte.cs" />
+    <Compile Include="dominio\EntidadBase.cs" />
     <Compile Include="dominio\Enums.cs" />
     <Compile Include="dominio\IBus.cs" />
     <Compile Include="dominio\Linea15.cs" />

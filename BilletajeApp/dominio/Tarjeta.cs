@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace BilletajeApp.dominio
 {
-    public class Tarjeta
+    public class Tarjeta : EntidadBase
     {
-        public int Id { get; set; }
+        
         public string Numero { get; set; }
         public Usuario Usuario { get; set; } //numero de cédula
         public double Saldo { get; set; }
         public EmpresaBilletaje Empresa { get; set; }
         public bool Activa { get; set; }
 
-        public Tarjeta(int _Id,string _Numero,EmpresaBilletaje _Empresa)
+        public Tarjeta(long _Id,string _Numero,EmpresaBilletaje _Empresa)
         {
-            this.Id = _Id;
+            this.id = _Id;
             this.Numero = _Numero;
             this.Empresa = _Empresa;
         }
@@ -54,17 +54,8 @@ namespace BilletajeApp.dominio
 
         public override string ToString()
         {
-            return "Id: "+this.Id+" Tarjeta Nro: "+this.Numero+" de la Marca: "+this.Empresa.Marca;
+            return "Id: "+this.id+" Tarjeta Nro: "+this.Numero+" de la Marca: "+this.Empresa.Marca;
         }
 
-        public override bool Equals(object obj)
-        {
-            bool R = false;
-            if (this.Numero == ((Tarjeta)obj).Numero)
-            {
-                R = true;
-            }
-            return R;
-        }
     }
 }

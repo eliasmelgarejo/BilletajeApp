@@ -9,7 +9,7 @@ namespace BilletajeApp.dominio
 {
     public class Linea15 : EmpresaTransporte
     {
-        public Linea15(int id)
+        public Linea15(long id)
         {
             Id = id;
             Nombre = this.GetType().Name; //reflexion

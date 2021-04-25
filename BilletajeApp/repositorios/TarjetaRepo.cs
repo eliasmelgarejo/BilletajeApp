@@ -16,21 +16,29 @@ namespace BilletajeApp.repositorios
             bool R;
             try
             {
-                string output = JsonConvert.SerializeObject(t);
-                //si el archivo no existe, lo creo
-                using (StreamWriter sw = 
-                    new StreamWriter(@"C:\Users\Elias\source\repos\BilletajeApp\BilletajeApp\bd\tarjeta.json"))
-                
+                //recuperar el archivo y convertir en una lista de objetos
+                String path = @"C:\Users\Elias\source\repos\BilletajeApp\BilletajeApp\bd\"+
+                    getFileName(t.className).ToLower();
+                string archivo = System.IO.File.ReadAllText(path);
 
+                List<Tarjeta> lista;
+                lista = JsonConvert.DeserializeObject<List<Tarjeta>>(archivo);
+
+                if (lista == null) lista = new List<Tarjeta>();
                 //agrego el nuevo objeto creado al final
+                lista.Add(t);
+
+                //pasar nueva lista a json
+                string nuevoArchivo = JsonConvert.SerializeObject(lista);
+                System.IO.File.WriteAllText(path, nuevoArchivo);
 
                 R = true;
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 R = false;
-                throw;
+                Console.WriteLine("Error: "+e.Message);
             }
             return R;
         }
@@ -40,8 +48,17 @@ namespace BilletajeApp.repositorios
             bool R;
             try
             {
-                string output = JsonConvert.SerializeObject(t);
-                //busco el objeto dentro del archivo y lo elimino
+                //recuperar el archivo y convertir en una lista de objetos
+                String path = @"C:\Users\Elias\source\repos\BilletajeApp\BilletajeApp\bd\" + getFileName(t.className).ToLower();
+                string archivo = System.IO.File.ReadAllText(path);
+
+                List<Tarjeta> lista = JsonConvert.DeserializeObject<List<Tarjeta>>(archivo);
+                //busco el objeto y lo remuevo de las lista
+                lista.Remove(t);
+
+                //pasar nueva lista a json
+                string nuevoArchivo = JsonConvert.SerializeObject(lista);
+                System.IO.File.WriteAllText(path, nuevoArchivo);
 
                 R = true;
             }
@@ -55,20 +72,46 @@ namespace BilletajeApp.repositorios
 
         public List<Tarjeta> findAll()
         {
-            //extraer del archivo el json
+            List<Tarjeta> R;
+            try
+            {
+                //recuperar el archivo y convertir en una lista de objetos
+                String path = @"C:\Users\Elias\source\repos\BilletajeApp\BilletajeApp\bd\" + getFileName("tarjeta");
+                string archivo = System.IO.File.ReadAllText(path);
 
-            //convertir en objeto o clase y delvolver
-
-            throw new NotImplementedException();
+                R = JsonConvert.DeserializeObject<List<Tarjeta>>(archivo);                
+            }
+            catch (Exception)
+            {
+                R = null;
+                throw;
+            }
+            return R;
         }
 
-        public Tarjeta findById(int id)
+        public Tarjeta findById(long id)
         {
-            //extraer del archivo el json
+            Tarjeta R;
+            try
+            {
+                //recuperar el archivo y convertir en una lista de objetos
+                String path = @"C:\Users\Elias\source\repos\BilletajeApp\BilletajeApp\bd\" + getFileName("tarjeta");
+                string archivo = System.IO.File.ReadAllText(path);
 
-            //convertir en objeto o clase y delvolver
+                List<Tarjeta> lista = JsonConvert.DeserializeObject<List<Tarjeta>>(archivo);
+                R = lista.Find(x => x.id == id);                
+            }
+            catch (Exception)
+            {
+                R = null;
+                throw;
+            }
+            return R;
+        }
 
-            throw new NotImplementedException();
+        public string getFileName(string className)
+        {
+            return className+".json";
         }
     }
 }
