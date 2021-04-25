@@ -15,9 +15,8 @@ namespace BilletajeApp.dominio
         public EmpresaBilletaje Empresa { get; set; }
         public bool Activa { get; set; }
 
-        public Tarjeta(long _Id,string _Numero,EmpresaBilletaje _Empresa)
+        public Tarjeta(string _Numero,EmpresaBilletaje _Empresa)
         {
-            this.id = _Id;
             this.Numero = _Numero;
             this.Empresa = _Empresa;
         }

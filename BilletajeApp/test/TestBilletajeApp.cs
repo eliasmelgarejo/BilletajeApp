@@ -64,12 +64,12 @@ namespace BilletajeApp.test
                 EmpresaBilletaje mas = new EmpresaBilletaje(++keys, "Empresa EPAS", "más");
                 Console.WriteLine("Empresa "+mas.ToString());
 
-                Tarjeta tarjetas = new Tarjeta(++keys, "3600-0020-0031-9479", mas);
-                Console.WriteLine(tarjetas.ToString() + " - " + "Activa: " + tarjetas.Activa);
-
+                Tarjeta tarjeta = new Tarjeta(0, "3600-0020-0031-9479", mas);
+                Console.WriteLine(tarjeta.ToString() + " - " + "iid: " + tarjeta.UUID);
+                
                 TarjetaRepo repo = new TarjetaRepo();
 
-                if (repo.create(tarjetas))
+                if (repo.create(tarjeta))
                 {
                     Console.WriteLine("Archivo creado con éxito!");
                 }
@@ -77,8 +77,27 @@ namespace BilletajeApp.test
                 {
                     Console.WriteLine("No se creo archivo");
                 }
-
+                
+                Console.WriteLine("Tarjetas...");
+                foreach (var item in repo.findAll())
+                {
+                    Console.WriteLine(item.ToString());
+                }
+                
                 /*
+
+                Console.WriteLine("Buscar la de id 5");
+                Tarjeta t = repo.findById(5);
+
+                Console.WriteLine(t.ToString());
+                Console.WriteLine("Eliminar la de id 5 UUID: "+t.UUID);
+                //repo.remove(t);
+                Console.WriteLine("Se vuelve a listar...");
+                foreach (var item in repo.findAll())
+                {
+                    Console.WriteLine(item.ToString());
+                }
+
                 Usuario carmen = new Usuario(++keys, "Carmen", "123");
                 tarjetas.AsignarUsuario(carmen);
 

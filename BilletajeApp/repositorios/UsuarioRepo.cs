@@ -24,14 +24,10 @@ namespace BilletajeApp.repositorios
             throw new NotImplementedException();
         }
 
-        public Usuario findById(long id)
+        public Usuario findById(Guid uuid)
         {
             throw new NotImplementedException();
         }
 
-        public string getFileName(string className)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

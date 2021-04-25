@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,14 +12,13 @@ namespace BilletajeApp.repositorios
 {
     public class TarjetaRepo : IRepository<Tarjeta>
     {
+        private const string path = @"c:\bd\tarjeta.json";
         public bool create(Tarjeta t)
         {
             bool R;
             try
             {
                 //recuperar el archivo y convertir en una lista de objetos
-                String path = @"C:\Users\Elias\source\repos\BilletajeApp\BilletajeApp\bd\"+
-                    getFileName(t.className).ToLower();
                 string archivo = System.IO.File.ReadAllText(path);
 
                 List<Tarjeta> lista;
@@ -29,7 +29,7 @@ namespace BilletajeApp.repositorios
                 lista.Add(t);
 
                 //pasar nueva lista a json
-                string nuevoArchivo = JsonConvert.SerializeObject(lista);
+                string nuevoArchivo = JsonConvert.SerializeObject(lista,Formatting.Indented);
                 System.IO.File.WriteAllText(path, nuevoArchivo);
 
                 R = true;
@@ -49,15 +49,21 @@ namespace BilletajeApp.repositorios
             try
             {
                 //recuperar el archivo y convertir en una lista de objetos
-                String path = @"C:\Users\Elias\source\repos\BilletajeApp\BilletajeApp\bd\" + getFileName(t.className).ToLower();
                 string archivo = System.IO.File.ReadAllText(path);
 
                 List<Tarjeta> lista = JsonConvert.DeserializeObject<List<Tarjeta>>(archivo);
                 //busco el objeto y lo remuevo de las lista
-                lista.Remove(t);
+                List<Tarjeta> lista2 = new List<Tarjeta>();
+                foreach (var item in lista)
+                {
+                    if (item.UUID!=t.UUID)
+                    {
+                        lista2.Add(item);
+                    }
+                }
 
                 //pasar nueva lista a json
-                string nuevoArchivo = JsonConvert.SerializeObject(lista);
+                string nuevoArchivo = JsonConvert.SerializeObject(lista2, Formatting.Indented);
                 System.IO.File.WriteAllText(path, nuevoArchivo);
 
                 R = true;
@@ -76,7 +82,6 @@ namespace BilletajeApp.repositorios
             try
             {
                 //recuperar el archivo y convertir en una lista de objetos
-                String path = @"C:\Users\Elias\source\repos\BilletajeApp\BilletajeApp\bd\" + getFileName("tarjeta");
                 string archivo = System.IO.File.ReadAllText(path);
 
                 R = JsonConvert.DeserializeObject<List<Tarjeta>>(archivo);                
@@ -89,17 +94,16 @@ namespace BilletajeApp.repositorios
             return R;
         }
 
-        public Tarjeta findById(long id)
+        public Tarjeta findById(Guid uuid)
         {
             Tarjeta R;
             try
             {
                 //recuperar el archivo y convertir en una lista de objetos
-                String path = @"C:\Users\Elias\source\repos\BilletajeApp\BilletajeApp\bd\" + getFileName("tarjeta");
                 string archivo = System.IO.File.ReadAllText(path);
 
                 List<Tarjeta> lista = JsonConvert.DeserializeObject<List<Tarjeta>>(archivo);
-                R = lista.Find(x => x.id == id);                
+                R = lista.Find(x => x.UUID == uuid);                
             }
             catch (Exception)
             {
@@ -108,10 +112,6 @@ namespace BilletajeApp.repositorios
             }
             return R;
         }
-
-        public string getFileName(string className)
-        {
-            return className+".json";
-        }
+               
     }
 }
