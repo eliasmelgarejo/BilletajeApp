@@ -11,9 +11,5 @@ namespace BilletajeApp.dominio
         public Bus bus { get; set; }
         public double saldo { get; set; }
 
-        public override string ToString()
-        {
-            return "UUID"+this.UUID+"";
-        }
     }
 }

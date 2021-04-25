@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BilletajeApp.dominio;
 using BilletajeApp.test;
+using BilletajeApp.vistas;
 
 namespace BilletajeApp
 {
@@ -12,9 +13,9 @@ namespace BilletajeApp
     {
         static void Main(string[] args)
         {
-            TestBilletajeApp.testTarjetasRepo();
+            w_EmpresaBilletaje form = new w_EmpresaBilletaje();
 
-            Console.ReadKey();
+            form.ShowDialog();
         }
     }
 }

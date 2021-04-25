@@ -12,17 +12,14 @@ namespace BilletajeApp.dominio
         public TipoBus Tipo { get; set; }
         public EmpresaTransporte Empresa { get; set; }
 
-        public Bus(int numero,TipoBus tipo,EmpresaTransporte empresa)
+        public Bus() { }
+
+        public Bus(int numero,TipoBus tipo)
         {
             this.Numero = numero;
             this.Tipo = tipo;
-            this.Empresa = empresa;
         }
 
-        public override string ToString()
-        {
-            return "UUID: "+this.UUID+" Numero: "+this.Numero+" Tipo: "+this.Tipo+" Empresa: "+Empresa.Nombre;
-        }
     }
 
 }

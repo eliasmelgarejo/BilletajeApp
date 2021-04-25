@@ -11,15 +11,12 @@ namespace BilletajeApp.dominio
         public string nombre { get; }
         public string cedula { get; }
 
+        public Usuario() { }
+
         public Usuario(string nombre,string cedula)
         {
             this.nombre = nombre;
             this.cedula = cedula;
-        }
-
-        public override string ToString()
-        {
-            return "UUID:"+UUID+" Nombre: "+nombre+" Cédula: "+cedula;
         }
     }
 }

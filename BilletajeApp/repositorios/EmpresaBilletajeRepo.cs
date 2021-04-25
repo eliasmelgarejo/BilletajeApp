@@ -3,35 +3,35 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Reflection;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BilletajeApp.repositorios
 {
-    public class TarjetaRepo : IRepository<Tarjeta>
+    public class EmpresaBilletajeRepo : IRepository<EmpresaBilletaje>
     {
         private string path;
 
-        public TarjetaRepo() {
-            Tarjeta t = new Tarjeta();
-            this.path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName.ToString() + "/bd/"+t.className+".json";
+        public EmpresaBilletajeRepo()
+        {
+            EmpresaBilletaje t = new EmpresaBilletaje();
+            this.path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName.ToString() + "/bd/" + t.className + ".json";
         }
 
-        public bool create(Tarjeta t)
+        public bool create(EmpresaBilletaje t)
         {
             bool R;
             try
             {
                 //recuperar el archivo y convertir en una lista de objetos
                 string archivo;
-                List<Tarjeta> lista;
-                
+                List<EmpresaBilletaje> lista;
+
                 try
                 {
                     archivo = File.ReadAllText(path);
-                    lista = JsonConvert.DeserializeObject<List<Tarjeta>>(archivo);
+                    lista = JsonConvert.DeserializeObject<List<EmpresaBilletaje>>(archivo);
                 }
                 catch (Exception)
                 {
@@ -40,13 +40,13 @@ namespace BilletajeApp.repositorios
                 }
 
 
-                if (lista == null) lista = new List<Tarjeta>();
+                if (lista == null) lista = new List<EmpresaBilletaje>();
 
                 //agrego el nuevo objeto creado al final
                 lista.Add(t);
 
                 //pasar nueva lista a json
-                string nuevoArchivo = JsonConvert.SerializeObject(lista,Formatting.Indented);
+                string nuevoArchivo = JsonConvert.SerializeObject(lista, Formatting.Indented);
                 File.WriteAllText(path, nuevoArchivo);
 
                 R = true;
@@ -55,12 +55,12 @@ namespace BilletajeApp.repositorios
             catch (Exception e)
             {
                 R = false;
-                Console.WriteLine("Error: "+e.Message);
+                Console.WriteLine("Error: " + e.Message);
             }
             return R;
         }
 
-        public bool edit(Tarjeta t)
+        public bool edit(EmpresaBilletaje t)
         {
             bool R;
             try
@@ -68,9 +68,9 @@ namespace BilletajeApp.repositorios
                 //recuperar el archivo y convertir en una lista de objetos
                 string archivo = File.ReadAllText(path);
 
-                List<Tarjeta> lista = JsonConvert.DeserializeObject<List<Tarjeta>>(archivo);
+                List<EmpresaBilletaje> lista = JsonConvert.DeserializeObject<List<EmpresaBilletaje>>(archivo);
                 //busco el objeto y lo remuevo de las lista
-                List<Tarjeta> lista2 = new List<Tarjeta>();
+                List<EmpresaBilletaje> lista2 = new List<EmpresaBilletaje>();
                 foreach (var item in lista)
                 {
                     if (item.UUID != t.UUID)
@@ -95,7 +95,7 @@ namespace BilletajeApp.repositorios
             return R;
         }
 
-        public bool remove(Tarjeta t)
+        public bool remove(EmpresaBilletaje t)
         {
             bool R;
             try
@@ -103,12 +103,12 @@ namespace BilletajeApp.repositorios
                 //recuperar el archivo y convertir en una lista de objetos
                 string archivo = File.ReadAllText(path);
 
-                List<Tarjeta> lista = JsonConvert.DeserializeObject<List<Tarjeta>>(archivo);
+                List<EmpresaBilletaje> lista = JsonConvert.DeserializeObject<List<EmpresaBilletaje>>(archivo);
                 //busco el objeto y lo remuevo de las lista
-                List<Tarjeta> lista2 = new List<Tarjeta>();
+                List<EmpresaBilletaje> lista2 = new List<EmpresaBilletaje>();
                 foreach (var item in lista)
                 {
-                    if (item.UUID!=t.UUID)
+                    if (item.UUID != t.UUID)
                     {
                         lista2.Add(item);
                     }
@@ -128,15 +128,15 @@ namespace BilletajeApp.repositorios
             return R;
         }
 
-        public List<Tarjeta> findAll()
+        public List<EmpresaBilletaje> findAll()
         {
-            List<Tarjeta> R;
+            List<EmpresaBilletaje> R;
             try
             {
                 //recuperar el archivo y convertir en una lista de objetos
                 string archivo = File.ReadAllText(path);
 
-                R = JsonConvert.DeserializeObject<List<Tarjeta>>(archivo);                
+                R = JsonConvert.DeserializeObject<List<EmpresaBilletaje>>(archivo);
             }
             catch (Exception e)
             {
@@ -146,87 +146,21 @@ namespace BilletajeApp.repositorios
             return R;
         }
 
-        public Tarjeta findById(Guid uuid)
+        public EmpresaBilletaje findById(Guid uuid)
         {
-            Tarjeta R;
+            EmpresaBilletaje R;
             try
             {
                 //recuperar el archivo y convertir en una lista de objetos
                 string archivo = File.ReadAllText(path);
 
-                List<Tarjeta> lista = JsonConvert.DeserializeObject<List<Tarjeta>>(archivo);
-                R = lista.Find(x => x.UUID == uuid);                
+                List<EmpresaBilletaje> lista = JsonConvert.DeserializeObject<List<EmpresaBilletaje>>(archivo);
+                R = lista.Find(x => x.UUID == uuid);
             }
             catch (Exception e)
             {
                 R = null;
                 Console.WriteLine("Error: " + e.Message);
-            }
-            return R;
-        }
-            
-        public double sumarSaldo(Guid uuid,double monto)
-        {
-            Tarjeta t;
-            double R;
-            try
-            {
-                //recuperar el archivo y convertir en una lista de objetos
-                string archivo = File.ReadAllText(path);
-
-                List<Tarjeta> lista = JsonConvert.DeserializeObject<List<Tarjeta>>(archivo);
-                t = lista.Find(x => x.UUID == uuid);
-                t.saldo += monto;
-                R = t.saldo;
-            }
-            catch (Exception e)
-            {
-                R = 0;
-                Console.WriteLine("Error: " + e.Message);
-            }
-            return R;
-        }
-
-        public double restarSaldo(Guid uuid, double monto)
-        {
-            Tarjeta t;
-            double R;
-            try
-            {
-                //recuperar el archivo y convertir en una lista de objetos
-                string archivo = File.ReadAllText(path);
-
-                List<Tarjeta> lista = JsonConvert.DeserializeObject<List<Tarjeta>>(archivo);
-                t = lista.Find(x => x.UUID == uuid);
-                t.saldo -= monto;
-                R = t.saldo;
-            }
-            catch (Exception e)
-            {
-                R = 0;
-                Console.WriteLine("Error: " + e.Message);
-            }
-            return R;
-        }
-
-        public bool asignarUsuario(Guid uuid, Usuario u)
-        {
-            Tarjeta t;
-            bool R;
-            try
-            {
-                //recuperar el archivo y convertir en una lista de objetos
-                string archivo = File.ReadAllText(path);
-
-                List<Tarjeta> lista = JsonConvert.DeserializeObject<List<Tarjeta>>(archivo);
-                t = lista.Find(x => x.UUID == uuid);
-                t.usuario = u;
-                R = true;
-            }
-            catch (Exception e)
-            {
-                R = false;
-                Console.WriteLine("Error: "+e.Message);
             }
             return R;
         }

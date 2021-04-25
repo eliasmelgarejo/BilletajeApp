@@ -22,11 +22,6 @@ namespace BilletajeApp.dominio
             this.empresa = _empresa;
             this.saldo = 0;
         }
-
-        public override string ToString()
-        {
-            return "UUID: "+this.UUID+" Tarjeta Nro: "+this.nombre+" de la Marca: "+this.empresa.Marca;
-        }
-
+        
     }
 }

@@ -11,6 +11,10 @@ namespace BilletajeApp.dominio
         private Guid uuid = System.Runtime.InteropServices.Marshal.GenerateGuidForType(typeof(EntidadBase));
         public string className{ get { return GetType().Name; } }
         public Guid UUID { get { return this.uuid; } }
-                
+
+        public override string ToString()
+        {
+            return "Entiad: "+className+" UUID: "+UUID;
+        }
     }
 }

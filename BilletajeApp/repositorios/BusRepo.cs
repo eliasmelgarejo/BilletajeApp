@@ -9,38 +9,39 @@ using System.Threading.Tasks;
 
 namespace BilletajeApp.repositorios
 {
-    public class UsuarioRepo : IRepository<Usuario>
+    public class BusRepo : IRepository<Bus>
     {
         private string path;
 
-        public UsuarioRepo()
+        public BusRepo()
         {
-            Usuario t = new Usuario();
-            this.path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName.ToString() + "/bd/" + t.className + ".json";
+            Bus t = new Bus();
+            this.path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName.ToString() + "/bd/" + t.className.ToLower() + ".json";
         }
 
-        public bool create(Usuario t)
+        public bool create(Bus t)
         {
             bool R;
             try
             {
                 //recuperar el archivo y convertir en una lista de objetos
                 string archivo;
-                List<Usuario> lista;
+                List<Bus> lista;
 
                 try
                 {
                     archivo = File.ReadAllText(path);
-                    lista = JsonConvert.DeserializeObject<List<Usuario>>(archivo);
+                    lista = JsonConvert.DeserializeObject<List<Bus>>(archivo);
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
+                    Console.WriteLine(e.Message);
                     File.WriteAllText(path, "");
                     lista = null;
                 }
 
 
-                if (lista == null) lista = new List<Usuario>();
+                if (lista == null) lista = new List<Bus>();
 
                 //agrego el nuevo objeto creado al final
                 lista.Add(t);
@@ -60,7 +61,7 @@ namespace BilletajeApp.repositorios
             return R;
         }
 
-        public bool edit(Usuario t)
+        public bool edit(Bus t)
         {
             bool R;
             try
@@ -68,9 +69,9 @@ namespace BilletajeApp.repositorios
                 //recuperar el archivo y convertir en una lista de objetos
                 string archivo = File.ReadAllText(path);
 
-                List<Usuario> lista = JsonConvert.DeserializeObject<List<Usuario>>(archivo);
+                List<Bus> lista = JsonConvert.DeserializeObject<List<Bus>>(archivo);
                 //busco el objeto y lo remuevo de las lista
-                List<Usuario> lista2 = new List<Usuario>();
+                List<Bus> lista2 = new List<Bus>();
                 foreach (var item in lista)
                 {
                     if (item.UUID != t.UUID)
@@ -95,7 +96,7 @@ namespace BilletajeApp.repositorios
             return R;
         }
 
-        public bool remove(Usuario t)
+        public bool remove(Bus t)
         {
             bool R;
             try
@@ -103,9 +104,9 @@ namespace BilletajeApp.repositorios
                 //recuperar el archivo y convertir en una lista de objetos
                 string archivo = File.ReadAllText(path);
 
-                List<Usuario> lista = JsonConvert.DeserializeObject<List<Usuario>>(archivo);
+                List<Bus> lista = JsonConvert.DeserializeObject<List<Bus>>(archivo);
                 //busco el objeto y lo remuevo de las lista
-                List<Usuario> lista2 = new List<Usuario>();
+                List<Bus> lista2 = new List<Bus>();
                 foreach (var item in lista)
                 {
                     if (item.UUID != t.UUID)
@@ -128,15 +129,15 @@ namespace BilletajeApp.repositorios
             return R;
         }
 
-        public List<Usuario> findAll()
+        public List<Bus> findAll()
         {
-            List<Usuario> R;
+            List<Bus> R;
             try
             {
                 //recuperar el archivo y convertir en una lista de objetos
                 string archivo = File.ReadAllText(path);
 
-                R = JsonConvert.DeserializeObject<List<Usuario>>(archivo);
+                R = JsonConvert.DeserializeObject<List<Bus>>(archivo);
             }
             catch (Exception e)
             {
@@ -146,15 +147,15 @@ namespace BilletajeApp.repositorios
             return R;
         }
 
-        public Usuario findById(Guid uuid)
+        public Bus findById(Guid uuid)
         {
-            Usuario R;
+            Bus R;
             try
             {
                 //recuperar el archivo y convertir en una lista de objetos
                 string archivo = File.ReadAllText(path);
 
-                List<Usuario> lista = JsonConvert.DeserializeObject<List<Usuario>>(archivo);
+                List<Bus> lista = JsonConvert.DeserializeObject<List<Bus>>(archivo);
                 R = lista.Find(x => x.UUID == uuid);
             }
             catch (Exception e)

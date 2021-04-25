@@ -9,12 +9,6 @@ namespace BilletajeApp.dominio
     public abstract class EmpresaTransporte : EntidadBase
     {
         public string nombre { get; set; }
-        public List<Bus> flota = new List<Bus>();
-                
-
-        public override string ToString()
-        {
-            return "UUID: "+UUID+" Nombre: " + nombre;
-        }
+        public List<Bus> flota { get; set; }
     }
 }
