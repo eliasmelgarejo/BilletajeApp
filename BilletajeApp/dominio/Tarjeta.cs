@@ -9,51 +9,22 @@ namespace BilletajeApp.dominio
     public class Tarjeta : EntidadBase
     {
         
-        public string Numero { get; set; }
-        public Usuario Usuario { get; set; } //numero de cédula
-        public double Saldo { get; set; }
-        public EmpresaBilletaje Empresa { get; set; }
-        public bool Activa { get; set; }
+        public string nombre { get; set; }
+        public Usuario usuario { get; set; } //numero de cédula
+        public double saldo { get; set; }
+        public EmpresaBilletaje empresa { get; set; }
+        public bool activa { get; set; }
 
-        public Tarjeta(string _Numero,EmpresaBilletaje _Empresa)
+        public Tarjeta(string _numero,EmpresaBilletaje _empresa)
         {
-            this.Numero = _Numero;
-            this.Empresa = _Empresa;
-        }
-
-        public bool ActivarTarjeta()
-        {
-            if(this.Usuario != null)
-            {
-                this.Activa = true;
-            }
-            return this.Activa;
-        }
-
-        public void BloquearTarjeta()
-        {
-            this.Activa = false;
-        }
-
-        public double SumarSaldo(double monto)
-        {
-            return this.Saldo += monto;
-        }
-
-        public double RestarSaldo(double monto)
-        {
-            Console.WriteLine("Restando Gs."+monto+" de la tarjeta "+this.Numero);
-            return this.Saldo -= monto;
-        }
-
-        public void AsignarUsuario(Usuario usuario)
-        {
-            this.Usuario = usuario;
+            this.nombre = _numero;
+            this.empresa = _empresa;
+            this.saldo = 0;
         }
 
         public override string ToString()
         {
-            return "Id: "+this.id+" Tarjeta Nro: "+this.Numero+" de la Marca: "+this.Empresa.Marca;
+            return "UUID: "+this.UUID+" Tarjeta Nro: "+this.nombre+" de la Marca: "+this.empresa.Marca;
         }
 
     }

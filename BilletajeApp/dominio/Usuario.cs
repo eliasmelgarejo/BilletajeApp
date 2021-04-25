@@ -6,32 +6,20 @@ using System.Threading.Tasks;
 
 namespace BilletajeApp.dominio
 {
-    public class Usuario
+    public class Usuario : EntidadBase
     {
-        public int Id { get; }
-        public string Nombre { get; }
-        public string Cedula { get; }
+        public string nombre { get; }
+        public string cedula { get; }
 
-        public Usuario(int id,string nombre,string cedula)
+        public Usuario(string nombre,string cedula)
         {
-            this.Id = id;
-            this.Nombre = nombre;
-            this.Cedula = cedula;
+            this.nombre = nombre;
+            this.cedula = cedula;
         }
 
         public override string ToString()
         {
-            return "Usuario id:"+Id+" Nombre: "+Nombre+" Cédula: "+Cedula;
-        }
-
-        public override bool Equals(object obj)
-        {
-            bool R = false;
-            if (this.Cedula == ((Usuario)obj).Cedula)
-            {
-                R = true;
-            }
-            return R;
+            return "UUID:"+UUID+" Nombre: "+nombre+" Cédula: "+cedula;
         }
     }
 }

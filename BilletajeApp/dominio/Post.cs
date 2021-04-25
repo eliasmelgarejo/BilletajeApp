@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace BilletajeApp.dominio
 {
-    public class Post
+    public class Post : EntidadBase
     {
+        public Bus bus { get; set; }
+        public double saldo { get; set; }
+
+        public override string ToString()
+        {
+            return "UUID"+this.UUID+"";
+        }
     }
 }

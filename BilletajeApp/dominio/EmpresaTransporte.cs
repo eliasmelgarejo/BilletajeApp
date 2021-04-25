@@ -6,37 +6,15 @@ using System.Threading.Tasks;
 
 namespace BilletajeApp.dominio
 {
-    public abstract class EmpresaTransporte
+    public abstract class EmpresaTransporte : EntidadBase
     {
-        private long id;
-        private string nombre;
-        private List<Bus> flota = new List<Bus>();
-
-        public long Id
-        {
-            set { this.id = value; }
-            get { return this.id; }
-        }
-        
-        public string Nombre
-        {
-            set {this.nombre = value;}
-            get { return this.nombre; }
-        }
+        public string nombre { get; set; }
+        public List<Bus> flota = new List<Bus>();
+                
 
         public override string ToString()
         {
-            return "Id: "+Id+" Nombre: "+Nombre;
-        }
-
-        public void AgregarBus(Bus bus)
-        {
-            this.flota.Add(bus);
-        }
-
-        public void EliminarBus(Bus bus)
-        {
-            this.flota.Remove(bus);
+            return "UUID: "+UUID+" Nombre: " + nombre;
         }
     }
 }

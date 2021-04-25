@@ -6,22 +6,20 @@ using System.Threading.Tasks;
 
 namespace BilletajeApp.dominio
 {
-    public class EmpresaBilletaje
+    public class EmpresaBilletaje : EntidadBase
     {
-        public int Id { get;}
         public string Nombre { get; set; }
         public string Marca { get; set; }
 
         public EmpresaBilletaje(int _Id,string _Nombre,string _Marca)
         {
-            this.Id = _Id;
             this.Nombre = _Nombre;
             this.Marca = _Marca;
         }
 
         public override string ToString()
         {
-            return "Id: "+this.Id+" Nombre: "+this.Nombre+" Marca: "+this.Marca;
+            return "UUID: "+this.UUID+" Nombre: "+this.Nombre+" Marca: "+this.Marca;
         }
     }
 }

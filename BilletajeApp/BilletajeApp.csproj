@@ -51,7 +51,6 @@
     <Compile Include="dominio\EmpresaTransporte.cs" />
     <Compile Include="dominio\EntidadBase.cs" />
     <Compile Include="dominio\Enums.cs" />
-    <Compile Include="dominio\IBus.cs" />
     <Compile Include="dominio\Linea15.cs" />
     <Compile Include="dominio\Post.cs" />
     <Compile Include="dominio\Usuario.cs" />
@@ -69,6 +68,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="bd\" />
     <Folder Include="bin\Debug\" />
     <Folder Include="servicios\" />
   </ItemGroup>

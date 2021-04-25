@@ -19,7 +19,7 @@ namespace BilletajeApp.test
             {
                 //variable que simular id autoincrementables
                 int keys = 0;
-                
+
                 /*
 
                 //recuperar el archivo y convertir en una lista de objetos
@@ -61,10 +61,12 @@ namespace BilletajeApp.test
                 linea15.AgregarBus((Bus) coche43);
                 */
 
+                Console.WriteLine("path: " + Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName+"\bd");
+
                 EmpresaBilletaje mas = new EmpresaBilletaje(++keys, "Empresa EPAS", "más");
                 Console.WriteLine("Empresa "+mas.ToString());
 
-                Tarjeta tarjeta = new Tarjeta(0, "3600-0020-0031-9479", mas);
+                Tarjeta tarjeta = new Tarjeta("3600-0020-0031-9479", mas);
                 Console.WriteLine(tarjeta.ToString() + " - " + "iid: " + tarjeta.UUID);
                 
                 TarjetaRepo repo = new TarjetaRepo();

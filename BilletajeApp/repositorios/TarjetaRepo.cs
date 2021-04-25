@@ -12,19 +12,31 @@ namespace BilletajeApp.repositorios
 {
     public class TarjetaRepo : IRepository<Tarjeta>
     {
-        private const string path = @"c:\bd\tarjeta.json";
+        private string path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName.ToString() + "\bd\tarjeta.json";
+
         public bool create(Tarjeta t)
         {
             bool R;
             try
             {
                 //recuperar el archivo y convertir en una lista de objetos
-                string archivo = System.IO.File.ReadAllText(path);
-
+                string archivo;
                 List<Tarjeta> lista;
-                lista = JsonConvert.DeserializeObject<List<Tarjeta>>(archivo);
+                
+                try
+                {
+                    archivo = System.IO.File.ReadAllText(path);
+                    lista = JsonConvert.DeserializeObject<List<Tarjeta>>(archivo);
+                }
+                catch (Exception)
+                {
+                    System.IO.File.WriteAllText(path, "");
+                    lista = null;
+                }
+
 
                 if (lista == null) lista = new List<Tarjeta>();
+
                 //agrego el nuevo objeto creado al final
                 lista.Add(t);
 
@@ -68,10 +80,10 @@ namespace BilletajeApp.repositorios
 
                 R = true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 R = false;
-                throw;
+                Console.WriteLine("Error: " + e.Message);
             }
             return R;
         }
@@ -86,10 +98,10 @@ namespace BilletajeApp.repositorios
 
                 R = JsonConvert.DeserializeObject<List<Tarjeta>>(archivo);                
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 R = null;
-                throw;
+                Console.WriteLine("Error: " + e.Message);
             }
             return R;
         }
@@ -105,13 +117,78 @@ namespace BilletajeApp.repositorios
                 List<Tarjeta> lista = JsonConvert.DeserializeObject<List<Tarjeta>>(archivo);
                 R = lista.Find(x => x.UUID == uuid);                
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 R = null;
-                throw;
+                Console.WriteLine("Error: " + e.Message);
             }
             return R;
         }
-               
+            
+        public double sumarSaldo(Guid uuid,double monto)
+        {
+            Tarjeta t;
+            double R;
+            try
+            {
+                //recuperar el archivo y convertir en una lista de objetos
+                string archivo = System.IO.File.ReadAllText(path);
+
+                List<Tarjeta> lista = JsonConvert.DeserializeObject<List<Tarjeta>>(archivo);
+                t = lista.Find(x => x.UUID == uuid);
+                t.saldo += monto;
+                R = t.saldo;
+            }
+            catch (Exception e)
+            {
+                R = 0;
+                Console.WriteLine("Error: " + e.Message);
+            }
+            return R;
+        }
+
+        public double restarSaldo(Guid uuid, double monto)
+        {
+            Tarjeta t;
+            double R;
+            try
+            {
+                //recuperar el archivo y convertir en una lista de objetos
+                string archivo = System.IO.File.ReadAllText(path);
+
+                List<Tarjeta> lista = JsonConvert.DeserializeObject<List<Tarjeta>>(archivo);
+                t = lista.Find(x => x.UUID == uuid);
+                t.saldo -= monto;
+                R = t.saldo;
+            }
+            catch (Exception e)
+            {
+                R = 0;
+                Console.WriteLine("Error: " + e.Message);
+            }
+            return R;
+        }
+
+        public bool asignarUsuario(Guid uuid, Usuario u)
+        {
+            Tarjeta t;
+            bool R;
+            try
+            {
+                //recuperar el archivo y convertir en una lista de objetos
+                string archivo = System.IO.File.ReadAllText(path);
+
+                List<Tarjeta> lista = JsonConvert.DeserializeObject<List<Tarjeta>>(archivo);
+                t = lista.Find(x => x.UUID == uuid);
+                t.usuario = u;
+                R = true;
+            }
+            catch (Exception e)
+            {
+                R = false;
+                Console.WriteLine("Error: "+e.Message);
+            }
+            return R;
+        }
     }
 }
