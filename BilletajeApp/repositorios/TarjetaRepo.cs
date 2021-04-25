@@ -12,7 +12,12 @@ namespace BilletajeApp.repositorios
 {
     public class TarjetaRepo : IRepository<Tarjeta>
     {
-        private string path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName.ToString() + "\bd\tarjeta.json";
+        private string path;
+
+        public TarjetaRepo() {
+            Tarjeta t = new Tarjeta();
+            this.path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName.ToString() + "/bd/"+t.className+".json";
+        }
 
         public bool create(Tarjeta t)
         {

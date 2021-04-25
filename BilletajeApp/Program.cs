@@ -12,7 +12,7 @@ namespace BilletajeApp
     {
         static void Main(string[] args)
         {
-            TestBilletajeApp.test1();
+            TestBilletajeApp.testTarjetasRepo();
 
             Console.ReadKey();
         }

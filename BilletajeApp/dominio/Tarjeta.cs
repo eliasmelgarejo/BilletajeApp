@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 namespace BilletajeApp.dominio
 {
     public class Tarjeta : EntidadBase
-    {
-        
+    {        
         public string nombre { get; set; }
         public Usuario usuario { get; set; } //numero de cédula
         public double saldo { get; set; }
         public EmpresaBilletaje empresa { get; set; }
         public bool activa { get; set; }
+
+        public Tarjeta() { }
 
         public Tarjeta(string _numero,EmpresaBilletaje _empresa)
         {
