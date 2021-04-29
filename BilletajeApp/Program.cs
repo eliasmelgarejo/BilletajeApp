@@ -13,9 +13,10 @@ namespace BilletajeApp
     {
         static void Main(string[] args)
         {
-            w_EmpresaBilletaje form = new w_EmpresaBilletaje();
+            MDIHOME home = new MDIHOME();
 
-            form.ShowDialog();
+            home.ShowDialog();
+
         }
     }
 }

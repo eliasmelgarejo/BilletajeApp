@@ -25,6 +25,14 @@ namespace BilletajeApp.vistas
             
         }
 
+        private void w_EmpresaBilletaje_Load(object sender, EventArgs e)
+        {
+
+            lista = services.findAll();
+            dataGridView1.DataSource = lista;
+
+        }
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -39,8 +47,8 @@ namespace BilletajeApp.vistas
         private void prepara_guardar()
         {
             empresa = new EmpresaBilletaje();
-            empresa.Nombre = this.txtNombre.Text;
-            empresa.Marca = this.txtMarca.Text;
+            empresa.Nombre = this.txtNombre.Text.ToLower();
+            empresa.Marca = this.txtMarca.Text.ToLower();
 
             if (services.create(empresa))
             {
@@ -51,13 +59,6 @@ namespace BilletajeApp.vistas
                 MessageBox.Show("No se creo Empresa!", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void w_EmpresaBilletaje_Load(object sender, EventArgs e)
-        {
-
-            lista = services.findAll();
-            dataGridView1.DataSource = lista;
-
-        }
+                
     }
 }

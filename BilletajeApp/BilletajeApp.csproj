@@ -68,11 +68,23 @@
     <Compile Include="servicios\EmpresaBilletajeServices.cs" />
     <Compile Include="servicios\IServices.cs" />
     <Compile Include="test\TestBilletajeApp.cs" />
+    <Compile Include="vistas\MDIHOME.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vistas\MDIHOME.Designer.cs">
+      <DependentUpon>MDIHOME.cs</DependentUpon>
+    </Compile>
     <Compile Include="vistas\w_EmpresaBilletaje.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="vistas\w_EmpresaBilletaje.Designer.cs">
       <DependentUpon>w_EmpresaBilletaje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="vistas\w_Usuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vistas\w_Usuario.Designer.cs">
+      <DependentUpon>w_Usuario.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -85,8 +97,14 @@
     <Folder Include="bin\Debug\" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="vistas\MDIHOME.resx">
+      <DependentUpon>MDIHOME.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="vistas\w_EmpresaBilletaje.resx">
       <DependentUpon>w_EmpresaBilletaje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vistas\w_Usuario.resx">
+      <DependentUpon>w_Usuario.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
