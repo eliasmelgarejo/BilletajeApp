@@ -1,0 +1,14 @@
+[
+  {
+    "Nombre": "ADF",
+    "Marca": "MASS",
+    "className": "EmpresaBilletaje",
+    "UUID": "9639ce19-4df3-38f0-a833-6a1e905e21c8"
+  },
+  {
+    "Nombre": "DEF",
+    "Marca": "JAHA",
+    "className": "EmpresaBilletaje",
+    "UUID": "9639ce19-4df3-38f0-a833-6a1e905e21c8"
+  }
+]

@@ -8,8 +8,8 @@ namespace BilletajeApp.dominio
 {
     public class Usuario : EntidadBase
     {
-        public string nombre { get; }
-        public string cedula { get; }
+        public string nombre { get; set; }
+        public string cedula { get; set; }
 
         public Usuario() { }
 

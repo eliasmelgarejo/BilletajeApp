@@ -55,24 +55,45 @@
     <Compile Include="dominio\Enums.cs" />
     <Compile Include="dominio\Linea15.cs" />
     <Compile Include="dominio\Post.cs" />
+    <Compile Include="dominio\Transaccion.cs" />
+    <Compile Include="repositorios\EmpresaTransporteRepo.cs" />
+    <Compile Include="repositorios\PostRepo.cs" />
     <Compile Include="dominio\Usuario.cs" />
     <Compile Include="commons\Utils.cs" />
     <Compile Include="dominio\Tarjeta.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="repositorios\BusRepo.cs" />
     <Compile Include="repositorios\EmpresaBilletajeRepo.cs" />
     <Compile Include="repositorios\IRepository.cs" />
     <Compile Include="repositorios\TarjetaRepo.cs" />
+    <Compile Include="repositorios\TransaccionRepo.cs" />
     <Compile Include="repositorios\UsuarioRepo.cs" />
+    <Compile Include="servicios\UsuarioServices.cs" />
+    <Compile Include="servicios\EmpresaTransporteServices.cs" />
     <Compile Include="servicios\EmpresaBilletajeServices.cs" />
     <Compile Include="servicios\IServices.cs" />
+    <Compile Include="servicios\BusServices.cs" />
+    <Compile Include="servicios\PostServices.cs" />
+    <Compile Include="servicios\TarjetaServices.cs" />
+    <Compile Include="servicios\TransaccionServices.cs" />
     <Compile Include="test\TestBilletajeApp.cs" />
-    <Compile Include="vistas\MDIHOME.cs">
+    <Compile Include="vistas\MDIParent1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="vistas\MDIHOME.Designer.cs">
-      <DependentUpon>MDIHOME.cs</DependentUpon>
+    <Compile Include="vistas\MDIParent1.Designer.cs">
+      <DependentUpon>MDIParent1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="vistas\w_Bus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vistas\w_Bus.Designer.cs">
+      <DependentUpon>w_Bus.cs</DependentUpon>
     </Compile>
     <Compile Include="vistas\w_EmpresaBilletaje.cs">
       <SubType>Form</SubType>
@@ -80,32 +101,65 @@
     <Compile Include="vistas\w_EmpresaBilletaje.Designer.cs">
       <DependentUpon>w_EmpresaBilletaje.cs</DependentUpon>
     </Compile>
-    <Compile Include="vistas\w_Usuario.cs">
+    <Compile Include="vistas\w_Post.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="vistas\w_Usuario.Designer.cs">
-      <DependentUpon>w_Usuario.cs</DependentUpon>
+    <Compile Include="vistas\w_Post.Designer.cs">
+      <DependentUpon>w_Post.cs</DependentUpon>
+    </Compile>
+    <Compile Include="vistas\w_Tarjeta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vistas\w_Tarjeta.Designer.cs">
+      <DependentUpon>w_Tarjeta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="vistas\w_Usuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vistas\w_Usuarios.Designer.cs">
+      <DependentUpon>w_Usuarios.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="bd\bus.json" />
     <None Include="bd\EmpresaBilletaje.json" />
+    <None Include="bd\EmpresaTransporte.json" />
+    <None Include="bd\Tarjeta.json" />
+    <None Include="bd\Usuario.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Debug\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="vistas\MDIHOME.resx">
-      <DependentUpon>MDIHOME.cs</DependentUpon>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vistas\MDIParent1.resx">
+      <DependentUpon>MDIParent1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vistas\w_Bus.resx">
+      <DependentUpon>w_Bus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="vistas\w_EmpresaBilletaje.resx">
       <DependentUpon>w_EmpresaBilletaje.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="vistas\w_Usuario.resx">
-      <DependentUpon>w_Usuario.cs</DependentUpon>
+    <EmbeddedResource Include="vistas\w_Post.resx">
+      <DependentUpon>w_Post.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="vistas\w_Tarjeta.resx">
+      <DependentUpon>w_Tarjeta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vistas\w_Usuarios.resx">
+      <DependentUpon>w_Usuarios.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="img\iconfinder_document-properties_23219.png" />
+    <Content Include="img\iconfinder_error_512541.png" />
+    <Content Include="img\process_24.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

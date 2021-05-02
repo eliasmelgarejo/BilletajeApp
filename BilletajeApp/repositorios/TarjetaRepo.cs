@@ -164,8 +164,27 @@ namespace BilletajeApp.repositorios
             }
             return R;
         }
-            
-        public double sumarSaldo(Guid uuid,double monto)
+
+        public Tarjeta findByNumero(String numero)
+        {
+            Tarjeta R;
+            try
+            {
+                //recuperar el archivo y convertir en una lista de objetos
+                string archivo = File.ReadAllText(path);
+
+                List<Tarjeta> lista = JsonConvert.DeserializeObject<List<Tarjeta>>(archivo);
+                R = lista.Find(x => x.numero == numero);
+            }
+            catch (Exception e)
+            {
+                R = null;
+                Console.WriteLine("Error: " + e.Message);
+            }
+            return R;
+        }
+
+        public double sumarSaldo(String numero, double monto)
         {
             Tarjeta t;
             double R;
@@ -175,7 +194,7 @@ namespace BilletajeApp.repositorios
                 string archivo = File.ReadAllText(path);
 
                 List<Tarjeta> lista = JsonConvert.DeserializeObject<List<Tarjeta>>(archivo);
-                t = lista.Find(x => x.UUID == uuid);
+                t = lista.Find(x => x.numero == numero);
                 t.saldo += monto;
                 R = t.saldo;
             }
@@ -187,7 +206,7 @@ namespace BilletajeApp.repositorios
             return R;
         }
 
-        public double restarSaldo(Guid uuid, double monto)
+        public double restarSaldo(String numero, double monto)
         {
             Tarjeta t;
             double R;
@@ -197,7 +216,7 @@ namespace BilletajeApp.repositorios
                 string archivo = File.ReadAllText(path);
 
                 List<Tarjeta> lista = JsonConvert.DeserializeObject<List<Tarjeta>>(archivo);
-                t = lista.Find(x => x.UUID == uuid);
+                t = lista.Find(x => x.numero == numero);
                 t.saldo -= monto;
                 R = t.saldo;
             }
@@ -209,7 +228,7 @@ namespace BilletajeApp.repositorios
             return R;
         }
 
-        public bool asignarUsuario(Guid uuid, Usuario u)
+        public bool asignarUsuario(String numero, Usuario u)
         {
             Tarjeta t;
             bool R;
@@ -219,7 +238,7 @@ namespace BilletajeApp.repositorios
                 string archivo = File.ReadAllText(path);
 
                 List<Tarjeta> lista = JsonConvert.DeserializeObject<List<Tarjeta>>(archivo);
-                t = lista.Find(x => x.UUID == uuid);
+                t = lista.Find(x => x.numero == numero);
                 t.usuario = u;
                 R = true;
             }

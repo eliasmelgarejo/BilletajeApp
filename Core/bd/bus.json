@@ -1,0 +1,28 @@
+[
+  {
+    "Numero": 43,
+    "Tipo": 1,
+    "Empresa": null,
+    "className": "Bus",
+    "UUID": "9639ce19-4df3-38f0-a833-6a1e905e21c8"
+  },
+  {
+    "Numero": 6,
+    "Tipo": 0,
+    "Empresa": null,
+    "className": "Bus",
+    "UUID": "9639ce19-4df3-38f0-a833-6a1e905e21c8"
+  },
+  {
+    "Numero": 1,
+    "Tipo": 0,
+    "Empresa": {
+      "nombre": "Linea15",
+      "flota": null,
+      "className": "Linea15",
+      "UUID": "9639ce19-4df3-38f0-a833-6a1e905e21c8"
+    },
+    "className": "Bus",
+    "UUID": "9639ce19-4df3-38f0-a833-6a1e905e21c8"
+  }
+]

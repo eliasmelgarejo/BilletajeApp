@@ -8,7 +8,7 @@ namespace BilletajeApp.dominio
 {
     public class Tarjeta : EntidadBase
     {        
-        public string nombre { get; set; }
+        public string numero { get; set; }
         public Usuario usuario { get; set; } //numero de cédula
         public double saldo { get; set; }
         public EmpresaBilletaje empresa { get; set; }
@@ -18,7 +18,7 @@ namespace BilletajeApp.dominio
 
         public Tarjeta(string _numero,EmpresaBilletaje _empresa)
         {
-            this.nombre = _numero;
+            this.numero = _numero;
             this.empresa = _empresa;
             this.saldo = 0;
         }

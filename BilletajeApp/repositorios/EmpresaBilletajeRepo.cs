@@ -164,5 +164,24 @@ namespace BilletajeApp.repositorios
             }
             return R;
         }
+
+        public EmpresaBilletaje findByNombre(String nombre)
+        {
+            EmpresaBilletaje R;
+            try
+            {
+                //recuperar el archivo y convertir en una lista de objetos
+                string archivo = File.ReadAllText(path);
+
+                List<EmpresaBilletaje> lista = JsonConvert.DeserializeObject<List<EmpresaBilletaje>>(archivo);
+                R = lista.Find(x => x.Nombre == nombre);
+            }
+            catch (Exception e)
+            {
+                R = null;
+                Console.WriteLine("Error: " + e.Message);
+            }
+            return R;
+        }
     }
 }

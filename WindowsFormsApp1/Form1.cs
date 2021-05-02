@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BilletajeApp.vistas
+namespace WindowsFormsApp1
 {
-    public partial class w_Usuario : Form
+    public partial class Form1 : Form
     {
-        public w_Usuario()
+        public Form1()
         {
             InitializeComponent();
         }

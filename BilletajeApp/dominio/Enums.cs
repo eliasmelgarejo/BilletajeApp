@@ -3,3 +3,9 @@
     REGULAR,
     EJECUTIVO
 }
+
+public enum TipoOperacion
+{
+    COBRO,
+    DEVOLUCION
+}

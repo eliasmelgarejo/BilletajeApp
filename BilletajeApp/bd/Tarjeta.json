@@ -1,0 +1,142 @@
+[
+  {
+    "numero": "3600002000319001",
+    "usuario": null,
+    "saldo": 0.0,
+    "empresa": {
+      "Nombre": "empresa tdp",
+      "Marca": "mass",
+      "className": "EmpresaBilletaje",
+      "UUID": "6c4c380b-c6ce-4ab4-b39a-0f97798b3143"
+    },
+    "activa": false,
+    "className": "Tarjeta",
+    "UUID": "42bf593f-9a27-41fb-93cf-561be3d7438d"
+  },
+  {
+    "numero": "3600002000319002",
+    "usuario": null,
+    "saldo": 0.0,
+    "empresa": {
+      "Nombre": "empresa tdp",
+      "Marca": "mass",
+      "className": "EmpresaBilletaje",
+      "UUID": "6d0694ac-fede-4a95-aaae-bbdc10227117"
+    },
+    "activa": false,
+    "className": "Tarjeta",
+    "UUID": "d32c6b3a-4946-4192-8c06-5205d773ec0e"
+  },
+  {
+    "numero": "3600002000319003",
+    "usuario": null,
+    "saldo": 0.0,
+    "empresa": {
+      "Nombre": "empresa tdp",
+      "Marca": "mass",
+      "className": "EmpresaBilletaje",
+      "UUID": "16285900-2cb3-4fca-b6a7-9db9172ef7b0"
+    },
+    "activa": false,
+    "className": "Tarjeta",
+    "UUID": "e619ec39-750d-4f7b-8a7b-77c436dd660f"
+  },
+  {
+    "numero": "3600002000319004",
+    "usuario": null,
+    "saldo": 0.0,
+    "empresa": {
+      "Nombre": "empresa tdp",
+      "Marca": "mass",
+      "className": "EmpresaBilletaje",
+      "UUID": "a1827d50-7b44-4e05-8be2-a46d6c043e2b"
+    },
+    "activa": false,
+    "className": "Tarjeta",
+    "UUID": "395d8be4-bbc3-4d63-8c7c-fb6415f1ad15"
+  },
+  {
+    "numero": "3600002000319005",
+    "usuario": null,
+    "saldo": 0.0,
+    "empresa": {
+      "Nombre": "empresa tdp",
+      "Marca": "mass",
+      "className": "EmpresaBilletaje",
+      "UUID": "9c986513-eec4-4be1-b64d-416b55a883c2"
+    },
+    "activa": false,
+    "className": "Tarjeta",
+    "UUID": "09f85661-1990-42d8-a25e-a83b49b8ae0e"
+  },
+  {
+    "numero": "3600002000319006",
+    "usuario": null,
+    "saldo": 0.0,
+    "empresa": {
+      "Nombre": "empresa tdp",
+      "Marca": "mass",
+      "className": "EmpresaBilletaje",
+      "UUID": "e1222427-d39b-4c1f-a0b2-a23b4190b49b"
+    },
+    "activa": false,
+    "className": "Tarjeta",
+    "UUID": "693e69ad-0dda-42b9-9dd0-1154ee243722"
+  },
+  {
+    "numero": "3600002000319007",
+    "usuario": null,
+    "saldo": 0.0,
+    "empresa": {
+      "Nombre": "empresa tdp",
+      "Marca": "mass",
+      "className": "EmpresaBilletaje",
+      "UUID": "1a6d848f-9376-4314-81fd-309fa9c4c5af"
+    },
+    "activa": false,
+    "className": "Tarjeta",
+    "UUID": "0d9ab298-2ced-44f5-a101-a2aabcf0509f"
+  },
+  {
+    "numero": "3600002000319008",
+    "usuario": null,
+    "saldo": 0.0,
+    "empresa": {
+      "Nombre": "empresa tdp",
+      "Marca": "mass",
+      "className": "EmpresaBilletaje",
+      "UUID": "e2001f52-3612-4cdd-9802-1020063b948e"
+    },
+    "activa": false,
+    "className": "Tarjeta",
+    "UUID": "bdfb88a8-6adc-49cb-b1ff-1168375eabb7"
+  },
+  {
+    "numero": "3600002000319009",
+    "usuario": null,
+    "saldo": 0.0,
+    "empresa": {
+      "Nombre": "empresa tdp",
+      "Marca": "mass",
+      "className": "EmpresaBilletaje",
+      "UUID": "ca445444-f0a1-4683-80fa-66725b78f23d"
+    },
+    "activa": false,
+    "className": "Tarjeta",
+    "UUID": "f4b8ebbe-fbaf-4ceb-a1fb-55d33af0c94b"
+  },
+  {
+    "numero": "3600002000319010",
+    "usuario": null,
+    "saldo": 0.0,
+    "empresa": {
+      "Nombre": "empresa tdp",
+      "Marca": "mass",
+      "className": "EmpresaBilletaje",
+      "UUID": "f9a202e3-9d54-49b9-98dc-16273d52fa92"
+    },
+    "activa": false,
+    "className": "Tarjeta",
+    "UUID": "71971490-254b-4251-9d16-7d2e2d661695"
+  }
+]

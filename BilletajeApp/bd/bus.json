@@ -1,28 +1,46 @@
 [
   {
-    "Numero": 43,
-    "Tipo": 1,
-    "Empresa": null,
-    "className": "Bus",
-    "UUID": "9639ce19-4df3-38f0-a833-6a1e905e21c8"
-  },
-  {
-    "Numero": 6,
-    "Tipo": 0,
-    "Empresa": null,
-    "className": "Bus",
-    "UUID": "9639ce19-4df3-38f0-a833-6a1e905e21c8"
-  },
-  {
     "Numero": 1,
     "Tipo": 0,
     "Empresa": {
       "nombre": "Linea15",
-      "flota": null,
-      "className": "Linea15",
-      "UUID": "9639ce19-4df3-38f0-a833-6a1e905e21c8"
+      "className": "EmpresaTransporte",
+      "UUID": "406676ae-78dc-45b9-95ae-53b8540669bf"
     },
     "className": "Bus",
-    "UUID": "9639ce19-4df3-38f0-a833-6a1e905e21c8"
+    "UUID": "8b5290aa-832e-451e-96c4-967cdbafeead"
+  },
+  {
+    "Numero": 2,
+    "Tipo": 1,
+    "Empresa": {
+      "nombre": "Linea15",
+      "className": "EmpresaTransporte",
+      "UUID": "6f135bff-a72f-4899-961e-a5ca7fb65397"
+    },
+    "className": "Bus",
+    "UUID": "aeec2a6f-ab85-436c-a1fd-1b5841fbf412"
+  },
+  {
+    "Numero": 3,
+    "Tipo": 0,
+    "Empresa": {
+      "nombre": "Linea15",
+      "className": "EmpresaTransporte",
+      "UUID": "192e9a7e-f198-4c08-8d32-57589daf5512"
+    },
+    "className": "Bus",
+    "UUID": "f68a6520-ed64-41a2-9f0a-eccee2a25c63"
+  },
+  {
+    "Numero": 4,
+    "Tipo": 1,
+    "Empresa": {
+      "nombre": "Linea15",
+      "className": "EmpresaTransporte",
+      "UUID": "b04293e6-15b8-4c64-bcd2-34c6d218746b"
+    },
+    "className": "Bus",
+    "UUID": "1eeddbac-5ff1-44a9-abd7-72f93d340556"
   }
 ]

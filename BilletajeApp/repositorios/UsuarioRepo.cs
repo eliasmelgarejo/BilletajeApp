@@ -164,5 +164,25 @@ namespace BilletajeApp.repositorios
             }
             return R;
         }
+
+        // custom method
+        public Usuario findByCedula(string cedula)
+        {
+            Usuario R;
+            try
+            {
+                //recuperar el archivo y convertir en una lista de objetos
+                string archivo = File.ReadAllText(path);
+
+                List<Usuario> lista = JsonConvert.DeserializeObject<List<Usuario>>(archivo);
+                R = lista.Find(x => x.cedula == cedula);
+            }
+            catch (Exception e)
+            {
+                R = null;
+                Console.WriteLine("Error: " + e.Message);
+            }
+            return R;
+        }
     }
 }

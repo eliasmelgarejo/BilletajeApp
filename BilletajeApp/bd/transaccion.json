@@ -1,0 +1,68 @@
+[
+  {
+    "fechaHora": "0001-01-01T00:00:00",
+    "bus": {
+      "Numero": 1,
+      "Tipo": 0,
+      "Empresa": {
+        "nombre": "Linea15",
+        "className": "EmpresaTransporte",
+        "UUID": "f8489b4e-bef8-48c3-81e0-9daac8a85c39"
+      },
+      "className": "Bus",
+      "UUID": "b5875224-09e9-4522-99ce-a4a46f85396d"
+    },
+    "tarjeta": {
+      "numero": "3600002000319001",
+      "usuario": null,
+      "saldo": 0.0,
+      "empresa": {
+        "Nombre": "empresa tdp",
+        "Marca": "mass",
+        "className": "EmpresaBilletaje",
+        "UUID": "f756b7e1-2252-447f-b62d-6dfaec8891bc"
+      },
+      "activa": false,
+      "className": "Tarjeta",
+      "UUID": "d4a5d98e-3961-4b03-8af2-0cdd4e14b093"
+    },
+    "tipoBus": 0,
+    "monto": 2300.0,
+    "operacion": 0,
+    "className": "Transaccion",
+    "UUID": "7f3519d2-e1d1-4a42-8fd5-e3e97185713d"
+  },
+  {
+    "fechaHora": "0001-01-01T00:00:00",
+    "bus": {
+      "Numero": 4,
+      "Tipo": 1,
+      "Empresa": {
+        "nombre": "Linea15",
+        "className": "EmpresaTransporte",
+        "UUID": "972faec3-4a97-4656-b543-520a989eeefe"
+      },
+      "className": "Bus",
+      "UUID": "8637481e-1691-4968-bdf0-87a0ef108e89"
+    },
+    "tarjeta": {
+      "numero": "3600002000319001",
+      "usuario": null,
+      "saldo": 0.0,
+      "empresa": {
+        "Nombre": "empresa tdp",
+        "Marca": "mass",
+        "className": "EmpresaBilletaje",
+        "UUID": "e9465203-8596-4ce1-917d-ab15a26a54fb"
+      },
+      "activa": false,
+      "className": "Tarjeta",
+      "UUID": "d531c543-a129-433d-9579-bb33ffac1fe9"
+    },
+    "tipoBus": 1,
+    "monto": 3400.0,
+    "operacion": 0,
+    "className": "Transaccion",
+    "UUID": "1f130e31-04c6-4ec1-8c2f-72f39229d722"
+  }
+]
